@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BoletimRgController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/BoletimRg")
 	public String BoletimRg() {
 		return "BoletimRg";
 	}

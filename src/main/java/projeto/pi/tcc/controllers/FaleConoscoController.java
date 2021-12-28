@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class FaleConoscoController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/FaleConosco")
 	public String FaleConosco() {
 		return "FaleConsco";
 	}
