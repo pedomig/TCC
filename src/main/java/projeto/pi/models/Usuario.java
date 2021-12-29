@@ -1,12 +1,29 @@
 package projeto.pi.models;
 
-public abstract class Usuario {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	protected String nome;
-	protected String username;
-	protected String senha;
-	protected String cidade;
-	protected int idade;
+@Entity
+public class Usuario {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nome;
+	private String username;
+	private String senha;
+	private String cidade;
+	private int idade;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getCidade() {
 		return cidade;
@@ -47,5 +64,4 @@ public abstract class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
 }
