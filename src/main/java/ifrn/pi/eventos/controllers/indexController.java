@@ -9,8 +9,11 @@ public class indexController {
 	
 	@RequestMapping("/")
 	public String index(){
-		System.out.println("Chamou o método index");
 		return "redirect:/eventos";
 	}
-		
+	
+	@RequestMapping("eventos/vacinacao")
+	public String vacin(){
+		return "vacinacao";
+	}
 }

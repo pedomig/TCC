@@ -29,11 +29,22 @@ public class EventosController {
 	private EventoRepository er;
 	@Autowired
 	private ConvidadoRepository cr;
+	
+	@RequestMapping("/prevenc")
+	public String preven(){
+		return "eventos/prevencoes";
+	}
 
 	@GetMapping("/form")
 	public String form(Evento evento) {
 		
 		return "eventos/formEvento";
+	}
+	
+	@GetMapping("/FaleConosco")
+	public String fc(Evento e) {
+		
+		return "FaleConosco";
 	}
 
 	@PostMapping

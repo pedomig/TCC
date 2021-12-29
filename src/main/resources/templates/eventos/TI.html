@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org"">
 <head>
 <meta charset="UTF-8" />
 <title>Tudo sobre Google Glass</title>
@@ -28,27 +28,7 @@
 
 			</figure>
 
-			<nav id="menu">
-				<h1>Menu Principal</h1>
-				<ol type="A">
-					<li onmouseover="mudaFoto('_imagens/home.png')"
-						onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a
-						href="TI.html">Tela incial</a></li>
-					<li onmouseover="mudaFoto('_imagens/especificacoes.png')"
-						onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a
-						href="vacinacao-txt.html">Vacinação</a></li>
-					<li onmouseover="mudaFoto('_imagens/fotos.png')"
-						onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a
-						href="BoletimRg.html">Boletim regional</a></li>
-					<li onmouseover="mudaFoto('_imagens/multimidia.png')"
-						onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a
-						href="Prevenc.html">Prevenções a Covid-19</a></li>
-					<li onmouseover="mudaFoto('_imagens/contato.png')"
-						onmouseout="mudaFoto('_imagens/glass-oculos-preto-peq.png')"><a
-						href="FaleConosco.html">Fale conosco</a></li>
-
-				</ol>
-			</nav>
+			<div th:replace="~{menu :: menu}"></div>
 
 		</header>
 
