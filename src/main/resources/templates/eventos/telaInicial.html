@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <title>Tudo sobre Google Glass</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" href="/css's/estilo (1).css">
-
-
 </head>
 
 <script language="javascript" src="funcoes.js"></script>
 
 
 <body bgcolor="#dddddd">
+	
+	<div th:replace="~{menu :: menu}"></div>
 	<div id="interface">
 		<header id="cabecalho">
 			<img id="icone" src="../imagens/icone-mapa.png" />
@@ -24,11 +24,6 @@
 					Angicos- RN.
 				</h2>
 			</hgroup>
-
-
-			</figure>
-
-			<div th:replace="~{menu :: menu}"></div>
 
 		</header>
 
