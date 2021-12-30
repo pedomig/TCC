@@ -11,13 +11,18 @@
 	<div th:replace="~{menu :: menu}"></div>
 	<div class="container">
 	<p th:if="${mensagem}" th:text="${mensagem}"></p> 
-	<h1>Lista de eventos</h1>
+	<h1>Lista dos Boletins:</h1>
 	<table class="highlight">
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Nome</th>
-			<th>Local</th>
+			<th>cidade</th>
+			<th>Cep</th>
+			<th>1Dose</th>
+			<th>2Dose</th>
+			<th>Casos</th>
+			<th>Recuperados</th>
+			<th>Observação</th>
 			<th>Data</th>
 			<th>Horario</th>
 			<th></th>
@@ -27,8 +32,13 @@
 	<tbody>
 		<tr th:each="e : ${eventos}">
 			<td th:text="${e.id}">1</td>
-			<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span th:text="${e.nome}">Aniversario de joão</span></a></td>
-			<td th:text="${e.local}">Clube</td>
+			<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span th:text="${e.cidade}">Aniversario de joão</span></a></td>
+			<td th:text="${e.Cep}">Clube</td>
+			<td th:text="${e.PDose}">100</td>
+			<td th:text="${e.SDose}">600</td>
+			<td th:text="${e.casos}">100</td>
+			<td th:text="${e.recuperados}">100</td>
+			<td th:text="${e.observacao}">100</td>
 			<td th:text="${#temporals.format(e.data, 'dd/MM/yyyy')}">25/02/2021</td>
 			<td th:text="${e.horario}">19:00</td><td>
 			<a th:href="@{/eventos/{id}/selecionar(id=${e.id})}"><i class="material-icons">edit</i></a>
