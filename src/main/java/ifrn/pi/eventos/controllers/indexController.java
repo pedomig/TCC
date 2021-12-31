@@ -9,10 +9,12 @@ import ifrn.pi.eventos.models.Evento;
 @Controller
 
 public class indexController {
+	
+	
 
 	@RequestMapping("/")
 	public String index() {
-		return "redirect:/eventos";
+		return "Login";
 	}
 
 	@GetMapping("/prevenc")
@@ -23,6 +25,12 @@ public class indexController {
 	@GetMapping("/form")
 	public String form(Evento evento) {
 		return "eventos/formEvento";
+	}
+	
+
+	@GetMapping("/form2")
+	public String form2(Evento evento) {
+		return "eventos/formUsuario";
 	}
 	
 	@RequestMapping("/telaInicial")
