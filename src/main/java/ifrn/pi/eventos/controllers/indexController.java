@@ -34,4 +34,8 @@ public class indexController {
 	public String fc() {
 		return "eventos/faleConosco";
 	}
+	@RequestMapping("Login")
+	public String login() {
+		return "eventos/Login";
+	}
 }

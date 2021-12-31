@@ -30,7 +30,7 @@ public class EventosController {
 	@Autowired
 	private ConvidadoRepository cr;
 
-	@GetMapping("/faleConosco")
+/*@GetMapping("/faleConosco")
 	public String fc(Evento e) {
 		return "eventos/faleConosco";
 	}
@@ -38,14 +38,14 @@ public class EventosController {
 	@GetMapping("/login")
 	public String login() {
 		return "eventos/login";
-	}
+	}*/
 
 	@PostMapping
 	public String salvar(@Valid Evento evento, BindingResult result, RedirectAttributes attributes) {
 
-		if (result.hasErrors()) {
+		/*if (result.hasErrors()) {
 			return fc(evento);
-		}
+		}*/
 
 		System.out.println(evento);
 		er.save(evento);
