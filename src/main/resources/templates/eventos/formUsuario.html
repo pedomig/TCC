@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<meta charset="ISO-8859-1">
-<title>FormUsuario</title>
+    <meta charset="UTF-8"/>
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/css's/estilo (1).css">
 </head>
 <body>
-<h1>AQUI VAI SER O FORM DO USUARIO</h1>
+    <style>
+        body{
+            /*background-color: aqua;*/
+            background-image: url("_imagens/Fundo-login.jpg"); 
+            background-size: cover;
+            background-position-y: -600px;
+
+        }
+        h1{
+            text-align: center;
+        }
+
+    </style>
+   
+    <div id="login">
+        <h1>Cadastro</h1>
+        <form action="/" method="post">
+        	<label for="nome">Digite seu nome:</label><input type="nome" name="nome" id="nome" placeholder="Digite seu nome" autocomplete="off">
+        	<label for="idade">Digite sua idade:</label><input type="idade" name="idade" id="idade" placeholder="Digite sua idade" autocomplete="off">
+        	<label for="cidade">Digite sua cidade:</label><input type="cidade" name="cidade" id="cidade" placeholder="Digite sua cidade" autocomplete="off">
+            <label for="email">Digite seu e-mail:</label><input type="email" name="email" id="email" placeholder="Digite seu email" autocomplete="off">
+            <label for="password">Digite sua senha:</label> <input type="password" name="password" id="password" placeholder="Digite sua senha" autocomplete="off">
+            <input type="submit" value="Cadastrar">
+
+           <p>Já possui conta?
+            <a href="/"> Conecte-se</a></p>
+
+        </form>
+    </div>
 </body>
 </html>

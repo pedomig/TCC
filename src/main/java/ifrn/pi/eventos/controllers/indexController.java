@@ -1,16 +1,21 @@
 package ifrn.pi.eventos.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ifrn.pi.eventos.models.Evento;
+import ifrn.pi.eventos.models.Usuario;
+import ifrn.pi.eventos.repositories.LoginRepository;
 
 @Controller
 
 public class indexController {
 	
-	
+	@Autowired
+	private LoginRepository lr;
 
 	@RequestMapping("/")
 	public String index() {
@@ -27,10 +32,15 @@ public class indexController {
 		return "eventos/formEvento";
 	}
 	
-
-	@GetMapping("/form2")
-	public String form2(Evento evento) {
+	@RequestMapping("/form2")
+	public String form2() {
 		return "eventos/formUsuario";
+	}
+	
+	@PostMapping("/")
+	public String cadastrado(Usuario user){
+		lr.save(user);
+		return "Login";
 	}
 	
 	@RequestMapping("/telaInicial")

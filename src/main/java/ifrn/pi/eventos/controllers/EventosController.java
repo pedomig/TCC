@@ -18,6 +18,7 @@ import javax.validation.Valid;
 
 import ifrn.pi.eventos.models.Convidado;
 import ifrn.pi.eventos.models.Evento;
+import ifrn.pi.eventos.models.Usuario;
 import ifrn.pi.eventos.repositories.ConvidadoRepository;
 import ifrn.pi.eventos.repositories.EventoRepository;
 
@@ -30,22 +31,19 @@ public class EventosController {
 	@Autowired
 	private ConvidadoRepository cr;
 
-/*@GetMapping("/faleConosco")
-	public String fc(Evento e) {
-		return "eventos/faleConosco";
-	}
-	
-	@GetMapping("/login")
-	public String login() {
-		return "eventos/login";
-	}*/
+	/*
+	 * @GetMapping("/faleConosco") public String fc(Evento e) { return
+	 * "eventos/faleConosco"; }
+	 * 
+	 * @GetMapping("/login") public String login() { return "eventos/login"; }
+	 */
 
 	@PostMapping
 	public String salvar(@Valid Evento evento, BindingResult result, RedirectAttributes attributes) {
 
-		/*if (result.hasErrors()) {
-			return fc(evento);
-		}*/
+		/*
+		 * if (result.hasErrors()) { return fc(evento); }
+		 */
 
 		System.out.println(evento);
 		er.save(evento);
