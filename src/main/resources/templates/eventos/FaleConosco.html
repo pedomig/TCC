@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>Tudo Sobre o Google Glass</title>
 <link rel="stylesheet" href="css's/estilo (1).css">
 <link rel="stylesheet" href="_CSS/form.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script language="javascript" src="_javascript/funcoes.js"></script>
-<script>
-	function calc_total() {
-		var qtd = document.getElementById(('cQtd').value);
-		tot = qtd * 1500;
-		document.getElementById('cTot').value = tot;
-	}
-</script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
-	
+
+
 	<div th:replace="~{menu :: menu}"></div>
 	<div id="interface">
 		<header id="cabecalho">
+		<img id="icon" src="../imagens/fale-conosco" />
+		
 			<hgroup>
-				<h1>Google Glass</h1>
-				<h2>A revolução do Google está chegando</h2>
+				<h1>Fale conosco > Dúvidas e Contatos</h1>
+				<h2>Deixe abaixo, no espaço a seguir, sua dúvida ou comentário
+					acerca do tema.</h2>
 			</hgroup>
 		</header>
 		<section id="corpo-full">
@@ -31,41 +28,37 @@
 			<article id="artigo-principal">
 				<header id="cabecalho-artigo">
 					<hgroup>
-
-
-						<h3>>Fale Conosco > Contato</h3>
-						<h1>Formulário de Contato</h1>
-						<h2>Por Rudyson Darlan</h2>
-						<h3 class="direita">Atualizado em 14/Março/2021</h3>
-
+					
 					</hgroup>
 				</header>
 			</article>
 		</section>
 
 		<form method="post" id="fContato" oninput="calc_total();">
+<fieldset id="mensagem">
 
+				<legend>Escreva aqui sua mensagem</legend>
+				<p>
+					<label for="cMsg"> </label>
+					<textarea name="tMsg" id="cMsg" cols="30" rows="5"
+						placeholder="Digite sua mensagem"></textarea>
+					
+				</p>
+			</fieldset>
+			
 			<fieldset id="usuario">
-				<legend>Identificação do Usuário </legend>
-				<p>
-					<label for="cNome">Nome:</label><input type="text" name="tNome"
-						id="cNome" size="20" maxlength="30" placeholder="Nome Completo" />
-				</p>
-				<p>
-					<label for="cSenha"> Senha:</label><input type="passaword"
-						name="tSenha" id="cSenha" size="20" maxlength="10"
-						placeholder="10 dígitos" />
-				</p>
+				<legend>Identificação do cidadão </legend>
 				<p>
 					<label for="cEmail">E-mail:</label><input type="email"
 						name="tEmail" id="cEmail" size="20" maxlength="40"
 						placeholder="Digite seu E-mail" />
 				</p>
-				<fieldset>
-					Sexo: <input type="radio" name="tsexo" id="cMasc"><label
-						for="cMasc">Masculino</label> <input type="radio" name="tsexo"
-						id="cFem"><label for="cFem">Feminino</label>
-				</fieldset>
+
+				<p>
+					<label for="cNome">Nome:</label><input type="text" name="tNome"
+						id="cNome" size="20" maxlength="30" placeholder="Nome Completo" />
+				</p>
+
 				<p>
 					<label for="tData">Data de Nascimento:</label><input type="date"
 						name="tData" />
@@ -73,130 +66,86 @@
 			</fieldset>
 
 			<fieldset id="endereco">
-				<legend>Endereço do Usuário</legend>
+				<legend>Endereço do cidadão</legend>
 				<p>
 					<label for="cRua"> Logradouro:</label><input type="text"
 						name="tRua" id="cRua" size="20" maxlength="80"
-						placeholder="Rua, Bairro..." />
+						placeholder="Rua, Bairro e n°" />
 				</p>
-				<p>
-					<label for="cNum">Número:</label><input type="number" name="tNum"
-						id="cNum" min="0" max="99999" />
-				</p>
-				<p>
-					<label for="cNum">Estado:</label><select name="tEst" id="cEst">
-						<optgroup label="Regiao Nordeste">
-							<option value="RN" select>Rio Grande do Norte</option>
-							<option value="PA">Paraíba</option>
-							<option value="CE">Ceará</option>
-							<option value="PI">Piauí</option>
-							<option value="PE">Pernambuco</option>
-							<option value="BA">Bahia</option>
-							<option value="MA">Maranhão</option>
-							<option value="AL">Alagoas</option>
-							<option value="SE">Sergipe</option>
-						</optgroup>
-
-						<optgroup label="Sudeste">
-
-							<option value="SP">São Paulo</option>
-							<option value="RJ">Rio de Janeiro</option>
-							<option value="MG">Minas Gerais</option>
-							<option value="ES">Espírito Santo</option>
-						</optgroup>
-
-						<optgroup label="Sul">
-							<option value="RS">Rio Grande do Sul</option>
-							<option value="SC">Santa Catarina</option>
-							<option value="PR">Paraná</option>
-						</optgroup>
-
-
-						<optgroup label="Centro Oeste">
-							<option value="MT">Mato Grosso</option>
-							<option value="MS">Mato Grosso do Sul</option>
-							<option value="GO">Goiás</option>
-							<option value="DF">Distrito Federal</option>
-						</optgroup>
-
-
-						<optgroup label="Norte">
-							<option value="AL">Alagoas</option>
-							<option value="AM">Amazonas</option>
-							<option value="AC">Acre</option>
-							<option value="RO">Rondônia</option>
-							<option value="AP">Amapá</option>
-							<option value="TO">Tocantins</option>
-							<option value="RR">Roraima</option>
-						</optgroup>
-				</p>
-				</select>
 
 				<p>
-					<label for="cCid">Cidade:</label><input type="text" name="tCid"
-						id="cCid" size="20" maxlength="30" placeholder="Sua cidade"
-						list="cidades" />
+					<label for="cCid">Cidade de morada:</label><input type="text"
+						name="tCid" id="cCid" size="20" maxlength="30"
+						placeholder="Sua cidade" list="cidades" />
 				</p>
 
 				<datalist id="cidades">
-					<option value="Caiçara do Rio do Vento"></option>
+
 					<option value="Afonso Bezerra"></option>
-					<option value="Mossoró"></option>
-					<option value="Macaíba"></option>
-					<option value="Natal"></option>
-					<option value="Apodi"></option>
-					<option value="Caicó"></option>
-					<option value="Parnamirim"></option>
+					<option value="Angicos"></option>
+					<option value="Caiçara do Rio do Vento"></option>
+					<option value="Fernando Pedroza"></option>
+					<option value="Jardim de Angicos"></option>
+					<option value="Lajes"></option>
+					<option value="Pedra Preta"></option>
+					<option value="Pedro Avelino"></option>
+
 
 				</datalist>
 
 			</fieldset>
 
-			<fieldset id="mensagem">
-				<legend>Mensagem do Usuário</legend>
-				<p>
-					<label for="cUrg"> Grau de Urgência:</label> Min<input type="range"
-						name="tUrg" id="cUrg" min="0" max="10" />Max
-				</p>
-				<p>
-					<label for="cMsg"> Mensagem:</label>
-					<textarea name="tMsg" id="cMsg" cols="30" rows="5"
-						placeholder="Digite sua mensagem"></textarea>
-				</p>
-			</fieldset>
 
-			<fieldset id="pedido">
-				<legend>Quero um Google Glass</legend>
-
-				<p>
-					<input type="checkbox" name="tPed" id="cPed" checked /> <label
-						for="cPed">Gostaria de adquirir um Google Glass quando
-						disponível</label>
-				</p>
-				<p>
-					<label for="cCor">Cor:</label><input type="color" name="tCor"
-						id="cCor" />
-				</p>
-				<p>
-					<label for="cQtd">Quantidade:</label><input type="number"
-						name="tqtd" id="cQtd" min="1" max="5" />
-				</p>
-				<p>
-					<label for="cTot">Preço Total:</label><input type="text"
-						name="tTot" id="cTot" placeholder="total a pagar" readonly />
-				</p>
-			</fieldset>
-
-			<input type="image" src="_imagens/botao-enviar.png" />
-
+<input type="submit" value="Enviar">
 
 		</form>
 
 		<footer id="rodape">
 			<p>
-				Copyright 2013 - by Gustavo Guanabara <br /> <a
-					href="http://facebook.com/cursosemvideo" target="_blank">Facebook</a>
-				| <a href="http://twitter.com/cursosemvideo" target="_blank">Twitter</a>
+				Para saber mais sobre, contate a prefeitura da sua cidade: <br/>
+				 <img src="/imagens/AFONSO BEZERRA.png" width="30px" height="30px"><a
+					href="http://afonsobezerra.rn.gov.br/" target="_blank"> Prefeitura
+					de Afonso Bezerra-</a> Fone: (84) 3533-2407
+					
+
+				<img src="/imagens/ANGICOS.png"
+					width="30px" height="30px"> <a href="https://www.angicos.rn.gov.br/" target="_blank">Prefeitura
+					de Angicos- </a> Fone:(84) 3531-3951
+					<p>
+					
+					<img src="/imagens/CAIÇARA DO RIO DO VENTO.png"
+					width="30px" height="30px"><a href="https://www.municipioonline.com.br/rn/prefeitura/caicaradoriodovento/cidadao/"
+					target="_blank"> Prefeitura de Caiçara do Rio do Vento- </a> Fone:
+				(84) 3268-2211 
+					
+					<img src="/imagens/FERNANDO PEDROZA.png" width="30px"
+					height="30px"><a href="https://www.fernandopedroza.rn.gov.br/index.php/pt/"
+					target="_blank"> Prefeitura de Fernando Pedroza-</a> Fone: (84)
+				99123-2139
+					<p>
+					
+					 <img src="/imagens/JARDIM DE ANGICOS.jpg" width="30px"
+					height="30px"><a href="https://jardimdeangicos.rn.gov.br/"
+					target="_blank"> Prefeitura de Jardim de Angicos- </a> Fone: (84)
+				3535-0028
+					
+					<img
+					src="/imagens/LAJES.png" width="30px" height="30px">
+					 <a href="https://lajes.rn.gov.br/"
+					target="_blank"> Prefeitura de Lajes-</a> Fone: (84) 3532-2627 
+					<p>
+					
+					 <img
+					src="/imagens/PEDRA PRETA.png" width="30px" height="30px"><a
+					href="https://www.pedrapreta.mt.gov.br/" target="_blank"> Prefeitura
+					de Pedra Preta-</a> Fone: (84) 3536-0041 
+					
+					
+					<img
+					src="/imagens/PEDRO AVELINO.jpg" width="30px" height="30px"> <a
+					href="http://pedroavelino.rn.gov.br/" target="_blank"> Prefeitura
+					de Pedro Avelino- </a> Fone: (84) 3534-2342
+
 			</p>
 		</footer>
 	</div>

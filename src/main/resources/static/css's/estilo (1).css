@@ -102,6 +102,14 @@ header#cabecalho img#icone {
  top:32px;
  
 }
+
+
+header#cabecalho img#icon {
+ position:absolute;
+ left:808px;
+ top:92px;
+ 
+}
 header#cabecalho img#logo {
  left:100px;
 }
@@ -347,3 +355,18 @@ input[type="submit"]:hover {
     background-color: #1B223C;
 }
 
+
+
+input[type="submit"] {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: #FFF;
+    background-color: #000000;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #1B223C;
+}
