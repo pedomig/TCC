@@ -5,5 +5,5 @@ import ifrn.pi.eventos.models.Evento;
 import ifrn.pi.eventos.models.Usuario;
 
 public interface LoginRepository extends JpaRepository<Usuario, Long> {
-
+	Usuario findByEmail(String email);
 }
