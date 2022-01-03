@@ -11,13 +11,12 @@ import ifrn.pi.eventos.models.Usuario;
 import ifrn.pi.eventos.repositories.LoginRepository;
 
 @Controller
-
 public class indexController {
 	
 	@Autowired
 	private LoginRepository lr;
 
-	@RequestMapping("/")
+	@GetMapping("/login")
 	public String index() {
 		return "Login";
 	}
@@ -37,13 +36,13 @@ public class indexController {
 		return "eventos/formUsuario";
 	}
 	
-	@PostMapping("/")
+	/*@PostMapping("/")
 	public String cadastrado(Usuario user){
 		lr.save(user);
 		return "Login";
-	}
+	}*/
 	
-	@RequestMapping("/telaInicial")
+	@GetMapping("/")
 	public String ti() {
 		return "eventos/telaInicial";
 	}
@@ -51,9 +50,5 @@ public class indexController {
 	@RequestMapping("/faleConosco")
 	public String fc() {
 		return "eventos/faleConosco";
-	}
-	@RequestMapping("Login")
-	public String login() {
-		return "eventos/Login";
 	}
 }

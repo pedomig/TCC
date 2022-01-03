@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Login</title>
@@ -9,10 +9,9 @@
     <style>
         body{
             /*background-color: aqua;*/
-            background-image: url("_imagens/Fundo-login.jpg"); 
+            background-image: url("/imagens/Fundo-login.jpg"); 
             background-size: cover;
             background-position-y: -600px;
-
         }
         h1{
             text-align: center;
@@ -22,9 +21,10 @@
    
     <div id="login">
         <h1>LOGIN</h1>
-        <form action="">
-            <label for="email">E-mail:</label><input type="email" name="email" id="email" placeholder="Digite seu email" autocomplete="off">
+        <form action="" method="post">
+            <label for="email">E-mail:</label><input type="text" name="username" id="email" placeholder="Digite seu email" autocomplete="off">
             <label for="password">Senha:</label> <input type="password" name="password" id="password" placeholder="Digite sua senha" autocomplete="off">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
             <input type="submit" value="Entrar">
             
             <li><a href="/telaInicial">Avançar()</a></li>

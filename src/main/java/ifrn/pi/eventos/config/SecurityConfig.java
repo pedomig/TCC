@@ -13,8 +13,11 @@ public class SecurityConfig {
 	@Autowired
 	private CustomUserDetailsService detailService;
 	
+	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
-		builder.userDetailsService(detailService).passwordEncoder(new BCryptPasswordEncoder());
+		builder
+			.userDetailsService(detailService)
+				.passwordEncoder(new BCryptPasswordEncoder());
 	}
 	
 	public BCryptPasswordEncoder passwordEncoder() {

@@ -88,17 +88,17 @@ public class Usuario implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return papeis;
+		return this.papeis;
 	}
 
 	@Override
 	public String getPassword() {
-		return senha;
+		return this.senha;
 	}
 
 	@Override
 	public String getUsername() {
-		return email;
+		return this.email;
 	}
 
 	@Override
