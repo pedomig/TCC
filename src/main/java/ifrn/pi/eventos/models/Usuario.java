@@ -25,7 +25,7 @@ public class Usuario implements UserDetails {
 	private String cidade;
 	private String email;
 	private int idade;
-	
+
 	@ManyToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Papel> papeis;
@@ -44,6 +44,10 @@ public class Usuario implements UserDetails {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getSenha() {
+		return senha;
 	}
 
 	public void setSenha(String senha) {
@@ -78,4 +82,42 @@ public class Usuario implements UserDetails {
 		return idade;
 	}
 
-	public void setIdde(i
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return papeis;
+	}
+
+	@Override
+	public String getPassword() {
+		return senha;
+	}
+
+	@Override
+	public String getUsername() {
+		return email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+}
