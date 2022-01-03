@@ -1,3 +1,4 @@
-create database eventos;
-use eventos;
-select * from eventos;
+INSERT INTO usuario
+(senha)
+VALUES
+('seila');
