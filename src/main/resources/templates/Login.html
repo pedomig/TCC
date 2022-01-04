@@ -24,7 +24,7 @@
         <form action="" method="post">
             <label for="email">E-mail:</label><input type="text" name="username" id="email" placeholder="Digite seu email" autocomplete="off">
             <label for="password">Senha:</label> <input type="password" name="password" id="password" placeholder="Digite sua senha" autocomplete="off">
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <input type="submit" value="Entrar">
             
             <li><a href="/telaInicial">Avançar()</a></li>
