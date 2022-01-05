@@ -10,8 +10,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/form").hasRole("ADMGERAL")
-				.antMatchers("/form").hasRole("ADMLOCAL")
+			.antMatchers("/css's/**", "/imagens/**", "/form2", "/loginCadastrado").permitAll()
+			.antMatchers("/form").hasAnyRole("ADMGERAL","ADMLOCAL")
 				.anyRequest()
 				.authenticated()
 			.and()
