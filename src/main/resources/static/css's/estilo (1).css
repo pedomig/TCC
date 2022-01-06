@@ -48,36 +48,6 @@ figure.foto-legenda:hover figcaption {
 	transition: 1px;
 }
 
-/*formatação do menu*/
-/*
-nav#menu ol {
- list-style:none;
- text-transform: uppercase;
- position:absolute;
- top:-20px;
- left: 209px;
-}
-
-nav#menu li {
- display:inline-block;
- background-color: #dddddd;
- padding:10px;
- margin:2px;
-}
-nav#menu {
- display:block;
-}
-nav#menu h1 {
- display:none;
-}
-
-nav#menu li:hover {
- background-color: #606060;
- transition: background-color 1s;
- 
-}
-*/
-
 /*formatação do cabeçalho*/
 header#cabecalho {
 	border-bottom: 1px #606060 solid;
@@ -140,6 +110,7 @@ section#corpo {
 	float: left;
 	border-right: 1px solid;
 	padding-right: 15px;
+	background-color: #ffffff;
 }
 
 aside#lateral {
