@@ -226,7 +226,7 @@ header#cabecalho-artigo h3 {
 /*pag das prevencoes*/
 section#prevencao {
 	display: block;
-	width: 900px;
+	width: 800px;
 	float: left;
 	border-right: 1px solid;
 	padding-right: 15px;
@@ -326,4 +326,10 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
 	background-color: #1B223C;
+}
+
+img#icone {
+	width: 380px;
+	height: 220px;
+	margin-top:23px;
 }
