@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/css's/estilo (1).css">
+</head>
+<body>
+    <style>
+        body{
+            /*background-color: aqua;*/
+            background-image: url("_imagens/Fundo-login.jpg"); 
+            background-size: cover;
+            background-position-y: -600px;
+
+        }
+        h1{
+            text-align: center;
+        }
+
+    </style>
+   
+    <div id="login">
+        <h1>Cadastro</h1>
+        <form action="/formUserAdd" method="post" th:object="${usuario}">
+		<div>
+			<input type="hidden" th:field="*{id}" readonly="readonly">
+		</div>
+		<div>
+			<label>Nome:</label> <input type="text"  th:field="*{nome}">
+			<span class="red-text text-darken-1"> <p th:errors="*{nome}"></p></span>
+		</div>
+		
+		<div>
+			<label>Cidade:</label> <input type="text"  th:field="*{cidade}">
+			<span class="red-text text-darken-1"> <p th:errors="*{cidade}"></p></span>
+		</div>
+		
+		<div>
+			<label>Email:</label> <input type="text"  th:field="*{email}">
+			<span class="red-text text-darken-1"> <p th:errors="*{email}"></p></span>
+		</div>
+		
+		<div>
+			<label>Senha:</label> <input type="password"  th:field="*{senha}">
+			<span class="red-text text-darken-1"> <p th:errors="*{senha}"></p></span>
+		</div>
+		<div>
+		<button class="waves-effect waves-light btn" type="submit">Cadastrar</button>
+		<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+		<p>Já possui conta?
+            <a href="/login"> Conecte-se</a></p>
+		</div>
+	</form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Painel</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+	<p th:if="${mensagem}" th:text="${mensagem}"></p> 
+	<h1>Painel de Usuários:</h1>
+	<table class="highlight">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Cidade</th>
+			<th>Papel</th>
+			<th></th>
+		</tr>	
+	</thead>
+	
+	<tbody>
+		<tr th:each="us : ${usuario}">
+			<td th:text="${us.id}">1</td>
+			<td th:text="${us.nome}">Angicos</td>
+			<td th:text="${us.email}">100</td>
+			<td th:text="${us.cidade}">600</td>
+			<td th:text="${us.papel}">600</td>
+			<td>
+			<a th:href="@{/promoverUser(id=${us.id})}"><i class="material-icons">edit</i></a>
+			<a th:href="@{/{id}/removerUser(id=${us.id})}"> <i class="material-icons">delete</i></a>
+			</td>
+		</tr>
+		
+	</tbody>
+	
+	</table>
+	</div>
+	
+</body>
+</html>

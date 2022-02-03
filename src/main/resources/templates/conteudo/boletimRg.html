@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Boletim Regional</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+	<p th:if="${mensagem}" th:text="${mensagem}"></p> 
+	<h1>Lista dos Boletins:</h1>
+	<table class="highlight">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Cidade</th>
+			<th>Casos</th>
+			<th>Recuperados</th>
+			<th>Observação</th>
+			<th>Óbitos</th>
+			<th>Data</th>
+			<th>Horário</th>
+			<th></th>
+		</tr>	
+	</thead>
+	
+	<tbody>
+		<tr th:each="br : ${boletimRegional}">
+			<td th:text="${br.id}">1</td>
+			<td th:text="${br.cidade}">Aniversario de joão</td>
+			<td th:text="${br.casos}">100</td>
+			<td th:text="${br.recuperados}">100</td>
+			<td th:text="${br.observacao}">100</td>
+			<td th:text="${br.obitos}">100</td>
+			<td th:text="${#temporals.format(br.data, 'dd/MM/yyyy')}">25/02/2021</td>
+			<td th:text="${br.horario}">19:00</td>
+			<td sec:authorize="hasRole('ADMGERAL')">
+			<a th:href="@{/{id}/editBr(id=${br.id})}"><i class="material-icons">edit</i></a>
+			<a th:href="@{/{id}/removerBr(id=${br.id})}"> <i class="material-icons">delete</i></a>
+			</td>
+		</tr>
+		
+	</tbody>
+	
+	</table>
+	</div>
+	
+</body>
+</html>

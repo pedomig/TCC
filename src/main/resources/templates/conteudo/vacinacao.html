@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+<title>Vacinação</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+	<p th:if="${mensagem}" th:text="${mensagem}"></p> 
+	<h1>Lista de Vacinação:</h1>
+	<table class="highlight">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>cidade</th>
+			<th>1Dose</th>
+			<th>2Dose</th>
+			<th>Dose de Reforço</th>
+			<th>Data de Atualização</th>
+			<th></th>
+		</tr>	
+	</thead>
+	
+	<tbody>
+		<tr th:each="vc : ${vacinacao}">
+			<td th:text="${vc.id}">1</td>
+			<td th:text="${vc.cidade}">Angicos</td>
+			<td th:text="${vc.PDose}">100</td>
+			<td th:text="${vc.SDose}">600</td>
+			<td th:text="${vc.RDose}">600</td>
+			<td th:text="${#temporals.format(vc.dataAtt, 'dd/MM/yyyy')}">25/02/2021</td>
+			<td sec:authorize="hasRole('ADMGERAL')">
+			<a th:href="@{/{id}/editVc(id=${vc.id})}"><i class="material-icons">edit</i></a>
+			<a th:href="@{/{id}/removerVc(id=${vc.id})}"> <i class="material-icons">delete</i></a>
+			</td>
+		</tr>
+		
+	</tbody>
+	
+	</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+	<script>
+	$(".dropdown-trigger").dropdown({ hover: false });
+	</script>
+</body>
+</html>

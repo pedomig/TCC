@@ -7,21 +7,50 @@
 </head>
 <body>
 
+
+	<ul id="dropdown1" class="dropdown-content">
+		<li sec:authorize="hasRole('ADMGERAL')"><a href="/formBoletim"
+			th:href="@{/formBoletim}">Add Boletim Regional</a></li>
+		<li sec:authorize="hasRole('ADMLOCAL')"><a href="/formBoletim"
+			th:href="@{/formBoletim}">Add Boletim Regional</a></li>
+		<li sec:authorize="hasRole('ADMGERAL')"><a href="/formVacinacao"
+			th:href="@{/formVacinacao}">Add Relatório Vacinal</a></li>
+		<li sec:authorize="hasRole('ADMLOCAL')"><a href="/formVacinacao"
+			th:href="@{/formVacinacao}">Add Relatório Vacinal</a></li>
+		<li sec:authorize="hasRole('ADMGERAL')"><a href="/painelUser"
+			th:href="@{/painelUser}">Painel de Usuários</a></li>
+		<li sec:authorize="hasRole('ADMGERAL')"><a href="/duvidas">Dúvidas</a></li>
+		<li sec:authorize="hasRole('ADMLOCAL')"><a href="/duvidas">Dúvidas</a></li>
+	</ul>
 	<nav th:fragment="menu" class="grey darken-4">
 		<div id="menu" class="nav-wrapper">
-			<a href="#!" class="brand-logo">SIGA-ME</a>
+			<a href="/" class="brand-logo">SIGA-ME</a>
 			<ul class="right hide-on-med-and-down">
 				<li><a href="/">Tela Inicial</a></li>
-				<li sec:authorize="hasRole('ADMGERAL')"><a href="#" th:href="@{/form}">Boletim Regional</a></li>
-				<li sec:authorize="hasRole('ADMLOCAL')"><a href="#" th:href="@{/form}">Boletim Regional</a></li>
-				<li><a href="/prevenc">Prevenções</a></li>
-				<li><a href="/faleConosco">Fale Conosco</a></li>
-				<li><a href="/eventos">Vacinação</a></li>
-				<li sec:authorize="!isAuthenticated()"><a href="#" th:href="@{/login}">Login</a></li>
-				<li><a href="/login">Sair</a></li>
+				<li><a href="/preven">Prevenções</a></li>
+				<li><a href="/vacinacao">Vacinação</a></li>
+				<li><a href="/boletimRg">Boletim</a></li>
+				<li sec:authorize="hasRole('ADMGERAL')"><a
+					class="dropdown-trigger" href="#!" data-target="dropdown1">Ferramentas<i
+						class="material-icons right">arrow_drop_down</i></a></li>
+				<li sec:authorize="hasRole('ADMLOCAL')"><a
+					class="dropdown-trigger" href="#!" data-target="dropdown1">Ferramentas<i
+						class="material-icons right">arrow_drop_down</i></a></li>
+				<li sec:authorize="!isAuthenticated()"><a href="/login"
+					th:href="@{/login}">Login</a></li>
+				<li><a sec:authorize="isAuthenticated()" href="/login">Sair</a></li>
 
 			</ul>
 		</div>
 	</nav>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+	<script>
+	$(".dropdown-trigger").dropdown({ hover: false });
+	</script>
 </body>
 </html>

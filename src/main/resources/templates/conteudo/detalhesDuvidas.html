@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Eventos</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+	<p th:if="${mensagem}" th:text="${mensagem}"></p> 
+		<h1>Detalhes</h1>
+
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Duvida</span>
+						<p>
+							<strong>Id: </strong><span th:text="${fc.id}">1</span>
+						</p>
+						<p>
+							<strong>Nome: </strong><span th:text="${fc.nome}">Aniversario
+								de José</span>
+						</p>
+						<p>
+							<strong>Email: </strong><span th:text="${fc.email}">Club</span>
+						</p>
+						<p>
+							<strong>Cidade: </strong><span th:text="${fc.cidade}">25/02/2021</span>
+						</p>
+						<p>
+							<strong>Logradouro: </strong><span th:text="${fc.logradouro}">20:00</span>
+						</p>
+						<p>
+							<strong>Data: </strong><span th:text="${fc.data}">25/02/2021</span>
+						</p>
+						<p>
+							<strong>Mensagem: </strong><span th:text="${fc.mensagem}">25/02/2021</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Adicionar Resposta:</span>
+						<form th:action="@{/{idResposta}}" method="post" th:object="${solucoes}">
+							<div>
+								<label>De:</label> <input type="text" th:field="*{atuante}">
+								<span class="red-text text-darken-1"><p th:errors="*{atuante}"></p></span>
+								
+							</div>
+							<div>
+								<label>Resposta:</label> <input type="text" th:field="*{resposta}">
+								<span class="red-text text-darken-1"> <p th:errors="*{resposta}"></p></span>
+								
+							</div>
+							<div>
+								<button type="submit" class="btn">Salvar</button>
+								<button type="reset" class="btn">Limpar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Convidados</span>	
+						<table class="highlight">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>De: </th>
+								<th>Resposta:</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="sl : ${sl}">
+							<td th:text="${sl.id}">1</td>
+							<td th:text="${sl.as}">Secretaria de Angicos</td>
+							<td th:text="${sl.solucao}">Ficar em Casa</td>
+							<td>
+							<a th:href="@{/{idResposta}/resposta/{idSolucao}/selecionar(idResposta=${fc.id}, idSolucao=${sl.id})}"><i class="material-icons">edit</i></a>
+			                <a th:href="@{/{id}/apagarResposta}"> <i class="material-icons">delete</i></a>
+							</td>
+							</tr>
+						</tbody>
+						</table>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

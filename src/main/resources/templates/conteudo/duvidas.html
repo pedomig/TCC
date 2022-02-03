@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Dúvidas</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+	<p th:if="${mensagem}" th:text="${mensagem}"></p> 
+	<h1>Lista de Dúvidas:</h1>
+	<table class="highlight">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Cidade</th>
+			<th>Logradouro</th>
+			<th>Data</th>
+			<th>Mensagem</th>
+			<th></th>
+		</tr>	
+	</thead>
+	
+	<tbody>
+		<tr th:each="fc : ${faleConosco}">
+			<td th:text="${fc.id}">1</td>
+			<td th:text="${fc.nome}">Pedro Miguel</td>
+			<td th:text="${fc.email}">pedrom17062001@gmail.com</td>
+			<td th:text="${fc.cidade}">Angicos</td>
+			<td th:text="${fc.logradouro}">Rua Vereador José Alves, 212</td>
+			<td th:text="${#temporals.format(fc.data, 'dd/MM/yyyy')}">25/02/2021</td>
+			<td><a th:href="@{/{id}(id=${fc.id})}"><span th:text="${fc.mensagem}">Mensagem</span></a></td>
+			<td sec:authorize="hasRole('ADMGERAL')">
+			<a th:href="@{/{id}/selecionarDuvidas(id=${fc.id})}"><i class="material-icons">edit</i></a>
+			<a th:href="@{/{id}/removerDuvidas(id=${fc.id})}"> <i class="material-icons">delete</i></a>
+			</td>
+		</tr>
+		
+	</tbody>
+	
+	</table>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,14 @@
+package ifrn.pi.tcc;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+@SpringBootApplication
+public class TCCApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TCCApplication.class, args);
+	}
+
+}

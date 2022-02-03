@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Fale Conosco</title>
+<link rel="stylesheet" href="css's/estilo (1).css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+
+
+	<div th:replace="~{menu :: menu}"></div>
+	<div id="interface">
+		<header id="cabecalho">
+			<img id="icon" src="/imagens/fale-conosco.png" />
+
+			<hgroup>
+				<h1>Fale conosco > Dúvidas e Contatos</h1>
+				<h2>Deixe abaixo, no espaço a seguir, sua dúvida ou comentário
+					acerca do tema.</h2>
+			</hgroup>
+		</header>
+		<section id="corpo-full">
+
+			<article id="artigo-principal">
+				<header id="cabecalho-artigo">
+					<hgroup>
+
+					</hgroup>
+				</header>
+			</article>
+		</section>
+
+		<form action="/faleConoscoAdd" method="post"
+			th:object="${faleConosco}">
+			<div>
+				<input type="hidden" th:field="*{id}" readonly="readonly">
+			</div>
+			<div>
+				<label>Nome:</label> <input type="text" th:field="*{nome}">
+				<span class="red-text text-darken-1">
+					<p th:errors="*{nome}"></p>
+				</span>
+			</div>
+			<div>
+				<label>Email:</label> <input type="text" th:field="*{email}">
+				<span class="red-text text-darken-1">
+					<p th:errors="*{email}"></p>
+				</span>
+			</div>
+			<div>
+				<label>Cidade:</label> <input type="text" th:field="*{cidade}">
+				<span class="red-text text-darken-1">
+					<p th:errors="*{cidade}"></p>
+				</span>
+			</div>
+
+			<div>
+				<label>Logradouro</label> <input type="text" th:field="*{logradouro}">
+				<span class="red-text text-darken-1">
+					<p th:errors="*{logradouro}"></p>
+				</span>
+			</div>
+			<div>
+				<label>Data:</label> <input type="date" th:field="*{data}">
+				<span class="red-text text-darken-1"><p th:errors="*{data}"></p></span>
+			</div>
+			<div>
+				<label>Mensagem:</label> <input type="text"
+					th:field="*{mensagem}"> <span
+					class="red-text text-darken-1">
+					<p th:errors="*{mensagem}"></p>
+				</span>
+			</div>
+			<div>
+				<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+				<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+			</div>
+		</form>
+
+		<footer id="rodape">
+			<p>
+				Para saber mais sobre, contate a prefeitura da sua cidade: <br /> <img
+					src="/imagens/AFONSO BEZERRA.png" width="30px" height="30px"><a
+					href="http://afonsobezerra.rn.gov.br/" target="_blank">
+					Prefeitura de Afonso Bezerra-</a> Fone: (84) 3533-2407 <img
+					src="/imagens/ANGICOS.png" width="30px" height="30px"> <a
+					href="https://www.angicos.rn.gov.br/" target="_blank">Prefeitura
+					de Angicos- </a> Fone:(84) 3531-3951
+			<p>
+
+				<img src="/imagens/CAIÇARA DO RIO DO VENTO.png" width="30px"
+					height="30px"><a
+					href="https://www.municipioonline.com.br/rn/prefeitura/caicaradoriodovento/cidadao/"
+					target="_blank"> Prefeitura de Caiçara do Rio do Vento- </a> Fone:
+				(84) 3268-2211 <img src="/imagens/FERNANDO PEDROZA.png" width="30px"
+					height="30px"><a
+					href="https://www.fernandopedroza.rn.gov.br/index.php/pt/"
+					target="_blank"> Prefeitura de Fernando Pedroza-</a> Fone: (84)
+				99123-2139
+			<p>
+
+				<img src="/imagens/JARDIM DE ANGICOS.jpg" width="30px" height="30px"><a
+					href="https://jardimdeangicos.rn.gov.br/" target="_blank">
+					Prefeitura de Jardim de Angicos- </a> Fone: (84) 3535-0028 <img
+					src="/imagens/LAJES.png" width="30px" height="30px"> <a
+					href="https://lajes.rn.gov.br/" target="_blank"> Prefeitura de
+					Lajes-</a> Fone: (84) 3532-2627
+			<p>
+
+				<img src="/imagens/PEDRA PRETA.png" width="30px" height="30px"><a
+					href="https://www.pedrapreta.mt.gov.br/" target="_blank">
+					Prefeitura de Pedra Preta-</a> Fone: (84) 3536-0041 <img
+					src="/imagens/PEDRO AVELINO.jpg" width="30px" height="30px">
+				<a href="http://pedroavelino.rn.gov.br/" target="_blank">
+					Prefeitura de Pedro Avelino- </a> Fone: (84) 3534-2342
+
+			</p>
+		</footer>
+	</div>
+</body>
+</html>
